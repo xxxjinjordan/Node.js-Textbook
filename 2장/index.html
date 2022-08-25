@@ -9,6 +9,8 @@
   </head>
   <body>
     <button onclick="get()">get data</button>
+    <button onclick="post()">post data</button>
+    <p>data will be arbitrary</p>
   </body>
   <script>
     let get = async () => {
@@ -20,5 +22,21 @@
         console.log(error);
       }
     };
+
+    async function post() {
+      try {
+        const result = await axios.post(
+          "https://www.zerocho.com/api/post/json",
+          {
+            name: "JDEV",
+            birth: 1995,
+          }
+        );
+        console.log(result);
+        console.log(result.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
   </script>
 </html>
